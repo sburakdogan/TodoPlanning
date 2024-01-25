@@ -11,11 +11,6 @@
     var totalDays = ViewData["TotalDays"] as Dictionary<string, int>;
 
     <div class="container text-center">
-        @foreach (var item in totalDays)
-        {
-            <h5> @item.Key provider estimated day count: @item.Value</h5>
-        }
-
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -61,5 +56,10 @@
                 }
             </tbody>
         </table>
+
+        @foreach (var item in totalDays)
+        {
+            <h5> @item.Key provider estimated day count: @item.Value</h5>
+        }
     </div>
 }
