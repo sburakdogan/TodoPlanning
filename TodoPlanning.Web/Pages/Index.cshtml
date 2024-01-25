@@ -1,0 +1,65 @@
+﻿@page
+@using TodoPlanning.Models.Dtos;
+@model IndexModel
+@{
+    ViewData["Title"] = "Todo Planning";
+}
+
+@if (ViewData["Developers"] != null)
+{
+    var developers = ViewData["Developers"] as List<DeveloperDto>;
+    var totalDays = ViewData["TotalDays"] as Dictionary<string, int>;
+
+    <div class="container text-center">
+        @foreach (var item in totalDays)
+        {
+            <h5> @item.Key provider estimated day count: @item.Value</h5>
+        }
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Developer Name</th>
+                    <th>Hourly Capacity</th>
+                    <th>Remaining Capacity</th>
+                    <th>Provider Name</th>
+                    <th>Assigned Tasks</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var developer in developers)
+                {
+                    <tr>
+                        <td>@developer.Name</td>
+                        <td>@developer.HourlyCapacity</td>
+                        <td>@developer.TotalCapacity</td>
+                        <td>@developer.ProviderName Provider</td>
+                        <td>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Task Name</th>
+                                        <th>Duration</th>
+                                        <th>Difficulty</th>
+                                        <th>Provider Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var task in developer.AssignedTasks)
+                                    {
+                                        <tr>
+                                            <td>@task.Name</td>
+                                            <td>@task.Duration</td>
+                                            <td>@task.Difficulty</td>
+                                            <td>@task.ProviderName Provider</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

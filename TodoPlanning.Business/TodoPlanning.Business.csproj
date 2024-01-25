@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TodoPlanning.Data\TodoPlanning.Data.csproj" />
+    <ProjectReference Include="..\TodoPlanning.Models\TodoPlanning.Models.csproj" />
+    <ProjectReference Include="..\TodoPlanning.Providers\TodoPlanning.Providers.csproj" />
+  </ItemGroup>
+
+</Project>
